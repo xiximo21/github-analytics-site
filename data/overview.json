@@ -1,0 +1,86 @@
+{
+  "summary": {
+    "total_repos": 4181,
+    "ai_repos": 2039,
+    "web_repos": 2142,
+    "total_languages": 17913,
+    "total_contributors": 121530,
+    "total_commits": 120105,
+    "total_issues": 100705,
+    "total_pulls": 96144,
+    "snapshot_count": 4181,
+    "avg_health_score": 32.92
+  },
+  "domain_distribution": {
+    "ai": {
+      "count": 2039,
+      "ratio": 0.4877,
+      "avg_stars": 5651.1,
+      "avg_health_score": 31.32
+    },
+    "web": {
+      "count": 2142,
+      "ratio": 0.5123,
+      "avg_stars": 5254.6,
+      "avg_health_score": 34.43
+    }
+  },
+  "top_languages": [
+    {
+      "language": "TypeScript",
+      "repo_count": 2345,
+      "ratio": 0.5609
+    },
+    {
+      "language": "JavaScript",
+      "repo_count": 2329,
+      "ratio": 0.557
+    },
+    {
+      "language": "Python",
+      "repo_count": 2214,
+      "ratio": 0.5295
+    },
+    {
+      "language": "Shell",
+      "repo_count": 1890,
+      "ratio": 0.452
+    },
+    {
+      "language": "CSS",
+      "repo_count": 1647,
+      "ratio": 0.3939
+    },
+    {
+      "language": "HTML",
+      "repo_count": 1447,
+      "ratio": 0.3461
+    },
+    {
+      "language": "Dockerfile",
+      "repo_count": 1017,
+      "ratio": 0.2432
+    },
+    {
+      "language": "Makefile",
+      "repo_count": 439,
+      "ratio": 0.105
+    },
+    {
+      "language": "Vue",
+      "repo_count": 419,
+      "ratio": 0.1002
+    },
+    {
+      "language": "Svelte",
+      "repo_count": 414,
+      "ratio": 0.099
+    }
+  ],
+  "health_score_distribution": {
+    "excellent": 0,
+    "good": 0,
+    "fair": 1038,
+    "poor": 3143
+  }
+}

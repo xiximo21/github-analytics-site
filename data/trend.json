@@ -1,0 +1,264 @@
+{
+  "items": [
+    {
+      "name_with_owner": "freeCodeCamp/freeCodeCamp",
+      "owner": "freeCodeCamp",
+      "name": "freeCodeCamp",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 455800,
+          "fork_count": 46834
+        }
+      ]
+    },
+    {
+      "name_with_owner": "NousResearch/hermes-agent",
+      "owner": "NousResearch",
+      "name": "hermes-agent",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 247268,
+          "fork_count": 51974
+        }
+      ]
+    },
+    {
+      "name_with_owner": "vuejs/vue",
+      "owner": "vuejs",
+      "name": "vue",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 212817,
+          "fork_count": 33723
+        }
+      ]
+    },
+    {
+      "name_with_owner": "Significant-Gravitas/AutoGPT",
+      "owner": "Significant-Gravitas",
+      "name": "AutoGPT",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 187453,
+          "fork_count": 46009
+        }
+      ]
+    },
+    {
+      "name_with_owner": "huggingface/transformers",
+      "owner": "huggingface",
+      "name": "transformers",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 166427,
+          "fork_count": 34639
+        }
+      ]
+    },
+    {
+      "name_with_owner": "AUTOMATIC1111/stable-diffusion-webui",
+      "owner": "AUTOMATIC1111",
+      "name": "stable-diffusion-webui",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 165027,
+          "fork_count": 31165
+        }
+      ]
+    },
+    {
+      "name_with_owner": "langgenius/dify",
+      "owner": "langgenius",
+      "name": "dify",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 156543,
+          "fork_count": 24688
+        }
+      ]
+    },
+    {
+      "name_with_owner": "open-webui/open-webui",
+      "owner": "open-webui",
+      "name": "open-webui",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 152593,
+          "fork_count": 22326
+        }
+      ]
+    },
+    {
+      "name_with_owner": "langchain-ai/langchain",
+      "owner": "langchain-ai",
+      "name": "langchain",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 146705,
+          "fork_count": 24533
+        }
+      ]
+    },
+    {
+      "name_with_owner": "harry0703/MoneyPrinterTurbo",
+      "owner": "harry0703",
+      "name": "MoneyPrinterTurbo",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 124774,
+          "fork_count": 19330
+        }
+      ]
+    },
+    {
+      "name_with_owner": "shadcn-ui/ui",
+      "owner": "shadcn-ui",
+      "name": "ui",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 124223,
+          "fork_count": 10815
+        }
+      ]
+    },
+    {
+      "name_with_owner": "Graphify-Labs/graphify",
+      "owner": "Graphify-Labs",
+      "name": "graphify",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 119720,
+          "fork_count": 11572
+        }
+      ]
+    },
+    {
+      "name_with_owner": "browser-use/browser-use",
+      "owner": "browser-use",
+      "name": "browser-use",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 115420,
+          "fork_count": 12703
+        }
+      ]
+    },
+    {
+      "name_with_owner": "immich-app/immich",
+      "owner": "immich-app",
+      "name": "immich",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 114635,
+          "fork_count": 7001
+        }
+      ]
+    },
+    {
+      "name_with_owner": "supabase/supabase",
+      "owner": "supabase",
+      "name": "supabase",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 110371,
+          "fork_count": 14421
+        }
+      ]
+    },
+    {
+      "name_with_owner": "TauricResearch/TradingAgents",
+      "owner": "TauricResearch",
+      "name": "TradingAgents",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 107667,
+          "fork_count": 20600
+        }
+      ]
+    },
+    {
+      "name_with_owner": "pytorch/pytorch",
+      "owner": "pytorch",
+      "name": "pytorch",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 103115,
+          "fork_count": 29908
+        }
+      ]
+    },
+    {
+      "name_with_owner": "ant-design/ant-design",
+      "owner": "ant-design",
+      "name": "ant-design",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 99558,
+          "fork_count": 54719
+        }
+      ]
+    },
+    {
+      "name_with_owner": "vllm-project/vllm",
+      "owner": "vllm-project",
+      "name": "vllm",
+      "domain": "ai",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 92209,
+          "fork_count": 22431
+        }
+      ]
+    },
+    {
+      "name_with_owner": "storybookjs/storybook",
+      "owner": "storybookjs",
+      "name": "storybook",
+      "domain": "web",
+      "snapshots": [
+        {
+          "snapshot_date": "2026-09-22",
+          "stargazer_count": 91101,
+          "fork_count": 10452
+        }
+      ]
+    }
+  ]
+}

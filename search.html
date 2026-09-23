@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仓库检索 · RepoLens</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="search">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M5 13l4 3 3-6 3 4 4-5"/></svg></div>
+        <div><div class="brand__name">RepoLens</div><div class="brand__sub">开源健康度分析</div></div>
+      </div>
+      <nav class="nav">
+        <div class="nav__label">分析视图</div>
+        <a class="nav__item" data-page="overview" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>总览首页</a>
+        <a class="nav__item" data-page="ranking" href="ranking.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="13" y="7" width="3" height="11"/></svg>健康度排行</a>
+        <a class="nav__item" data-page="languages" href="languages.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M12 3v9h9"/></svg>语言生态</a>
+        <a class="nav__item" data-page="compare" href="compare.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/></svg>AI·Web 对比</a>
+        <a class="nav__item is-active" data-page="search" href="search.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>仓库检索</a>
+      </nav>
+      <div class="sidebar__foot"><div class="sidebar__meta"><span class="dot"></span> PostgreSQL · FastAPI</div></div>
+    </aside>
+    <div class="scrim"></div>
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" aria-label="菜单"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar__title"><span class="topbar__crumb">RepoLens / 仓库检索</span><h1 class="topbar__h1">仓库检索</h1></div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__actions"></div>
+      </header>
+      <main class="content">
+<div class="filters mb-6">
+  <div class="field"><label>领域</label><select class="select" id="fDomain"><option value="">全部</option><option value="ai">AI</option><option value="web">Web</option></select></div>
+  <div class="field"><label>主语言</label><input class="input" id="fLang" placeholder="如 Python" /></div>
+  <div class="field"><label>最低星标</label><input class="input" id="fStarsMin" type="number" min="0" placeholder="0" /></div>
+  <div class="field"><label>最低健康度</label><input class="input" id="fHealthMin" type="number" min="0" max="100" placeholder="0" /></div>
+  <div class="field"><label>排序</label><select class="select" id="fSort"><option value="stargazer_count">星标</option><option value="health_score">健康度</option><option value="fork_count">Fork</option><option value="contributors_count">贡献者</option></select></div>
+  <div class="field" style="align-self:end"><button class="btn btn--primary btn--sm" id="btnSearch">搜索</button><button class="btn btn--ghost btn--sm" id="btnReset" style="margin-left:6px">重置</button></div>
+</div>
+<section class="card"><div class="card__head"><div><div class="card__title">检索结果</div><div class="card__desc" id="resultDesc">—</div></div><div class="flex" style="gap:8px;align-items:center"><button class="btn btn--ghost btn--sm" id="btnPrev" disabled>上一页</button><span class="text-3" style="font-size:var(--fs-sm)" id="pageInfo">—</span><button class="btn btn--ghost btn--sm" id="btnNext" disabled>下一页</button></div></div><div class="card__body" style="overflow-x:auto"><table class="table" id="repoTable"><thead><tr><th>仓库</th><th>域</th><th>语言</th><th>星标</th><th>Fork</th><th>健康度</th><th>贡献者</th></tr></thead><tbody></tbody></table></div></section></main>
+    </div>
+  </div>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    window.RL={palette:{brand:"#4f46e5",ai:"#8b5cf6",web:"#0ea5b7",text:"#383d52",text1:"#383d52",text2:"#646b82",text3:"#848aa0",border:"#e7e9f0",grid:"#e7e9f0",font:"'Plus Jakarta Sans',system-ui,sans-serif",mono:"'JetBrains Mono',ui-monospace,monospace",excellent:"#16a34a",good:"#65a30d",fair:"#d97706",poor:"#dc2626",langs:["#4f46e5","#0ea5b7","#f59e0b","#ec4899","#10b981","#6366f1","#ef4444","#14b8a6"]},fmt:function(n){return n==null?"\u2014":Number(n).toLocaleString("en-US");},healthLevel:function(s){return s>=80?"excellent":s>=60?"good":s>=40?"fair":"poor";}};
+    (function(){const p=document.body.getAttribute("data-page");document.querySelectorAll(".nav__item").forEach(function(a){a.classList.toggle("is-active",a.getAttribute("data-page")===p);});})();
+    (function(){const s=document.querySelector(".sidebar"),c=document.querySelector(".scrim"),b=document.querySelector(".menu-btn");if(!s||!b)return;b.addEventListener("click",function(){s.classList.toggle("is-open");c&&c.classList.toggle("is-open");});c&&c.addEventListener("click",function(){s.classList.remove("is-open");c.classList.remove("is-open");});})();
+  </script>
+  <script>
+var LIST_DATA=null,curPage=1,pageSize=20;
+fetch("./data/list.json").then(function(r){return r.json();}).then(function(d){LIST_DATA=d.items;loadResults();});
+function getFiltered(){
+  if(!LIST_DATA)return[];
+  var domain=document.getElementById("fDomain").value;var lang=document.getElementById("fLang").value.trim().toLowerCase();
+  var starsMin=parseInt(document.getElementById("fStarsMin").value)||0;var healthMin=parseFloat(document.getElementById("fHealthMin").value)||0;
+  var sort=document.getElementById("fSort").value;
+  var items=LIST_DATA.filter(function(r){
+    if(domain&&r.domain!==domain)return false;
+    if(lang&&(r.primary_language||"").toLowerCase().indexOf(lang)===-1)return false;
+    if(r.stargazer_count<starsMin)return false;
+    if((r.health_score||0)<healthMin)return false;
+    return true;
+  });
+  items.sort(function(a,b){return(b[sort]||0)-(a[sort]||0);});
+  return items;
+}
+function loadResults(){
+  var filtered=getFiltered();var total=filtered.length;var totalPages=Math.max(1,Math.ceil(total/pageSize));
+  if(curPage>totalPages)curPage=totalPages;
+  var start=(curPage-1)*pageSize;var pageItems=filtered.slice(start,start+pageSize);
+  document.getElementById("resultDesc").textContent="共 "+RL.fmt(total)+" 仓库";
+  document.getElementById("pageInfo").textContent=curPage+" / "+totalPages;
+  document.getElementById("btnPrev").disabled=curPage<=1;document.getElementById("btnNext").disabled=curPage>=totalPages;
+  var tbody=document.querySelector("#repoTable tbody");tbody.innerHTML="";
+  pageItems.forEach(function(r){
+    var badge=r.domain==="ai"?'<span class="badge badge--domain-ai"><span class="swatch"></span>AI</span>':'<span class="badge badge--domain-web"><span class="swatch"></span>Web</span>';
+    var lvl=r.health_level||RL.healthLevel(r.health_score);var hs=r.health_score!=null?'<span class="health-badge health-badge--'+lvl+'">'+r.health_score.toFixed(1)+'</span>':"\u2014";
+    tbody.insertAdjacentHTML("beforeend","<tr><td>"+r.name_with_owner+"</td><td>"+badge+"</td><td><span class="text-3" style="font-size:var(--fs-xs)">"+(r.primary_language||"\u2014")+"</span></td><td>"+RL.fmt(r.stargazer_count)+"</td><td>"+RL.fmt(r.fork_count)+"</td><td>"+hs+"</td><td>"+RL.fmt(r.contributors_count)+"</td></tr>");
+  });
+}
+document.getElementById("btnSearch").addEventListener("click",function(){curPage=1;loadResults();});
+document.getElementById("btnReset").addEventListener("click",function(){document.getElementById("fDomain").value="";document.getElementById("fLang").value="";document.getElementById("fStarsMin").value="";document.getElementById("fHealthMin").value="";document.getElementById("fSort").value="stargazer_count";curPage=1;loadResults();});
+document.getElementById("btnPrev").addEventListener("click",function(){if(curPage>1){curPage--;loadResults();}});
+document.getElementById("btnNext").addEventListener("click",function(){curPage++;loadResults();});
+</script>
+</body>
+</html>

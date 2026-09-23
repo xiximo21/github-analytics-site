@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健康度排行 · RepoLens</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="ranking">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M5 13l4 3 3-6 3 4 4-5"/></svg></div>
+        <div><div class="brand__name">RepoLens</div><div class="brand__sub">开源健康度分析</div></div>
+      </div>
+      <nav class="nav">
+        <div class="nav__label">分析视图</div>
+        <a class="nav__item" data-page="overview" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>总览首页</a>
+        <a class="nav__item is-active" data-page="ranking" href="ranking.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="13" y="7" width="3" height="11"/></svg>健康度排行</a>
+        <a class="nav__item" data-page="languages" href="languages.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M12 3v9h9"/></svg>语言生态</a>
+        <a class="nav__item" data-page="compare" href="compare.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/></svg>AI·Web 对比</a>
+        <a class="nav__item" data-page="search" href="search.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>仓库检索</a>
+      </nav>
+      <div class="sidebar__foot"><div class="sidebar__meta"><span class="dot"></span> PostgreSQL · FastAPI</div></div>
+    </aside>
+    <div class="scrim"></div>
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" aria-label="菜单"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar__title"><span class="topbar__crumb">RepoLens / 健康度排行</span><h1 class="topbar__h1">健康度排行</h1></div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__actions"></div>
+      </header>
+      <main class="content">
+<div class="filters mb-6">
+  <div class="field"><label>主语言</label><select class="select" id="rankLang"><option value="">全部语言</option><option>Python</option><option>TypeScript</option><option>JavaScript</option><option>Jupyter Notebook</option></select></div>
+  <div class="field"><label>排行维度</label><select class="select" id="rankDim"><option value="overall">综合健康度</option><option value="popularity">流行度</option><option value="activity">活跃度</option><option value="responsiveness">响应性</option><option value="maintenance">维护性</option><option value="sustainability">持续性</option></select></div>
+  <div class="field"><label>显示数量</label><select class="select" id="rankTop"><option value="10">Top 10</option><option value="20">Top 20</option><option value="50" selected>Top 50</option></select></div>
+</div>
+<section class="grid grid--side">
+  <div class="card"><div class="card__head"><div><div class="card__title" id="rankTitle">Top 50 健康度排行</div><div class="card__desc">综合 5 维加权评分 · 满分 100</div></div></div><div class="card__body"><div class="rank-list" id="rankList"></div></div></div>
+  <div class="card"><div class="card__head"><div><div class="card__title">维度雷达 · 榜首</div><div class="card__desc" id="radarDesc">—</div></div></div><div class="card__body"><div id="chartRadar" class="chart chart--lg"></div></div></div>
+</section></main>
+    </div>
+  </div>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    window.RL={palette:{brand:"#4f46e5",ai:"#8b5cf6",web:"#0ea5b7",text:"#383d52",text1:"#383d52",text2:"#646b82",text3:"#848aa0",border:"#e7e9f0",grid:"#e7e9f0",font:"'Plus Jakarta Sans',system-ui,sans-serif",mono:"'JetBrains Mono',ui-monospace,monospace",excellent:"#16a34a",good:"#65a30d",fair:"#d97706",poor:"#dc2626",langs:["#4f46e5","#0ea5b7","#f59e0b","#ec4899","#10b981","#6366f1","#ef4444","#14b8a6"]},fmt:function(n){return n==null?"\u2014":Number(n).toLocaleString("en-US");},healthLevel:function(s){return s>=80?"excellent":s>=60?"good":s>=40?"fair":"poor";}};
+    (function(){const p=document.body.getAttribute("data-page");document.querySelectorAll(".nav__item").forEach(function(a){a.classList.toggle("is-active",a.getAttribute("data-page")===p);});})();
+    (function(){const s=document.querySelector(".sidebar"),c=document.querySelector(".scrim"),b=document.querySelector(".menu-btn");if(!s||!b)return;b.addEventListener("click",function(){s.classList.toggle("is-open");c&&c.classList.toggle("is-open");});c&&c.addEventListener("click",function(){s.classList.remove("is-open");c.classList.remove("is-open");});})();
+  </script>
+  <script>
+var radarChart=echarts.init(document.getElementById("chartRadar"));
+radarChart.setOption({tooltip:{trigger:"item"},legend:{bottom:0},radar:{radius:"66%",center:["50%","46%"],indicator:[{name:"流行度",max:100},{name:"活跃度",max:100},{name:"响应性",max:100},{name:"维护性",max:100},{name:"持续性",max:100}],axisName:{color:RL.palette.text3},splitLine:{lineStyle:{color:RL.palette.grid}},splitArea:{areaStyle:{color:["#fbfbfe","#fff"]}},axisLine:{lineStyle:{color:RL.palette.grid}}},series:[{type:"radar",data:[]}]});
+var RANKING_DATA=null;
+fetch("./data/ranking.json").then(function(r){return r.json();}).then(function(d){RANKING_DATA=d;loadRanking();});
+function loadRanking(){
+  if(!RANKING_DATA)return;
+  var top=parseInt(document.getElementById("rankTop").value);
+  var dim=document.getElementById("rankDim").value;
+  var lang=document.getElementById("rankLang").value;
+  var items=RANKING_DATA.items.slice();
+  if(lang)items=items.filter(function(r){return r.primary_language===lang;});
+  items=items.slice(0,top);
+  var list=document.getElementById("rankList");list.innerHTML="";
+  var dimLabels={popularity:"流行度",activity:"活跃度",responsiveness:"响应性",maintenance:"维护性",sustainability:"持续性"};
+  document.getElementById("rankTitle").textContent="Top "+items.length+" "+(dim==="overall"?"健康度排行":dimLabels[dim]+"排行");
+  items.forEach(function(r,i){
+    var color=r.domain==="ai"?"var(--ai)":"var(--web)";
+    var badge=r.domain==="ai"?'<span class="badge badge--domain-ai"><span class="swatch"></span>AI</span>':'<span class="badge badge--domain-web"><span class="swatch"></span>Web</span>';
+    var lvl=RL.healthLevel(r.health_score);
+    var score=dim==="overall"?r.health_score:r.dimension_score;
+    var barW=dim==="overall"?(r.health_score||0):Math.min((r.dimension_score||0)/2,100);
+    list.insertAdjacentHTML("beforeend",'<div class="rank-row"><div class="rank-row__no '+(i<3?"top":"")+'">'+(i+1)+'</div><div class="rank-row__main"><div class="rank-row__name">'+r.name_with_owner+' '+badge+' <span class="text-3" style="font-size:var(--fs-xs);font-family:var(--font-mono)">'+(r.primary_language||"")+'</span></div><div class="rank-row__bar"><i style="width:'+barW.toFixed(1)+'%;background:'+color+'"></i></div></div><div class="rank-row__score"><span class="health-badge health-badge--'+lvl+'">'+(score!=null?score.toFixed(1):"\u2014")+'</span></div></div>');
+  });
+  if(items.length>0){
+    var topItem=items[0],dims=topItem.dimensions||{};
+    var topDims=[dims.popularity||0,dims.activity||0,dims.responsiveness||0,dims.maintenance||0,dims.sustainability||0];
+    var allZero=topDims.every(function(v){return v===0;});
+    if(allZero){document.getElementById("radarDesc").textContent="特征数据未计算";document.getElementById("chartRadar").innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-3)"><div style="font-size:40px;margin-bottom:12px">\ud83d\udcca</div><div>维度数据暂不可用</div></div>';return;}
+    var avgDims=[0,0,0,0,0];items.forEach(function(it){var dd=it.dimensions||{};avgDims[0]+=(dd.popularity||0);avgDims[1]+=(dd.activity||0);avgDims[2]+=(dd.responsiveness||0);avgDims[3]+=(dd.maintenance||0);avgDims[4]+=(dd.sustainability||0);});var n=items.length;avgDims=avgDims.map(function(v){return Math.round(v/n*10)/10;});
+    document.getElementById("radarDesc").textContent=topItem.name_with_owner;
+    radarChart.setOption({legend:{data:[topItem.name,"全库均值"]},series:[{type:"radar",data:[{value:topDims.map(function(v){return Math.round(v*10)/10;}),name:topItem.name,lineStyle:{color:RL.palette.ai,width:2},itemStyle:{color:RL.palette.ai},areaStyle:{color:"rgba(139,92,246,0.18)"}},{value:avgDims,name:"全库均值",lineStyle:{color:RL.palette.text3,width:1.5,type:"dashed"},itemStyle:{color:RL.palette.text3},areaStyle:{color:"rgba(100,107,130,0.08)"}}]}]},true);
+  }
+}
+document.getElementById("rankTop").addEventListener("change",loadRanking);
+document.getElementById("rankLang").addEventListener("change",loadRanking);
+document.getElementById("rankDim").addEventListener("change",loadRanking);
+</script>
+</body>
+</html>

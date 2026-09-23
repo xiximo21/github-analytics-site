@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepoLens - 数据集总览</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="overview">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M5 13l4 3 3-6 3 4 4-5"/></svg>
+        </div>
+        <div><div class="brand__name">RepoLens</div><div class="brand__sub">开源健康度分析</div></div>
+      </div>
+      <nav class="nav">
+        <div class="nav__label">分析视图</div>
+        <a class="nav__item is-active" data-page="overview" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          总览首页</a>
+        <a class="nav__item" data-page="ranking" href="ranking.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="13" y="7" width="3" height="11"/></svg>
+          健康度排行</a>
+        <a class="nav__item" data-page="languages" href="languages.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M12 3v9h9"/></svg>
+          语言生态</a>
+        <a class="nav__item" data-page="compare" href="compare.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/></svg>
+          AI·Web 对比</a>
+        <a class="nav__item" data-page="search" href="search.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          仓库检索</a>
+      </nav>
+      <div class="sidebar__foot"><div class="sidebar__meta"><span class="dot"></span> PostgreSQL · FastAPI</div></div>
+    </aside>
+    <div class="scrim"></div>
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" aria-label="菜单"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="topbar__title"><span class="topbar__crumb">RepoLens / 总览首页</span><h1 class="topbar__h1">数据集总览</h1></div>
+        <div class="topbar__spacer"></div>
+      </header>
+      <main class="content">
+        <section class="stat-grid mb-6">
+          <div class="stat"><div class="stat__label"><span class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5h6l2 3h8v11z"/></svg></span>仓库总数</div><div class="stat__value" id="sTotalRepos">—</div><div class="stat__delta flat" id="sDomainSplit">—</div></div>
+          <div class="stat"><div class="stat__label"><span class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span>平均健康度</div><div class="stat__value" id="sAvgHealth">—</div><div class="stat__delta flat">满分 100 · 5 维加权</div></div>
+          <div class="stat"><div class="stat__label"><span class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0M16 6a3 3 0 0 1 0 6m5 8a5.5 5.5 0 0 0-4-5.3"/></svg></span>贡献者总数</div><div class="stat__value" id="sContribs">—</div><div class="stat__delta flat" id="sContribsSub">—</div></div>
+          <div class="stat"><div class="stat__label"><span class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>数据快照</div><div class="stat__value" id="sSnapshots">—</div><div class="stat__delta flat">支撑星标增速对比</div></div>
+        </section>
+        <section class="grid grid--side mb-6">
+          <div class="card">
+            <div class="card__head"><div><div class="card__title">AI 与 Web 生态概览</div><div class="card__desc">双域仓库规模、平均星标与平均健康度对照</div></div></div>
+            <div class="card__body">
+              <div class="grid grid--2" style="gap:var(--sp-4)">
+                <div class="meta-item" style="border-left:3px solid var(--ai)"><div class="meta-item__k">AI 方向</div><div class="meta-item__v" id="aiCount">—</div><div class="text-3" style="font-size:var(--fs-sm);margin-top:6px" id="aiDetail">—</div></div>
+                <div class="meta-item" style="border-left:3px solid var(--web)"><div class="meta-item__k">Web 方向</div><div class="meta-item__v" id="webCount">—</div><div class="text-3" style="font-size:var(--fs-sm);margin-top:6px" id="webDetail">—</div></div>
+              </div>
+              <div style="margin-top:var(--sp-5)">
+                <div class="text-3" style="font-size:var(--fs-xs);font-weight:500;margin-bottom:8px">仓库规模占比</div>
+                <div style="height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden;display:flex" id="ratioBar"><div id="ratioAi" style="background:linear-gradient(90deg,var(--ai),var(--ai-600))"></div><div id="ratioWeb" style="background:linear-gradient(90deg,var(--web-600),var(--web))"></div></div>
+                <div class="flex between mt-2" style="font-size:var(--fs-xs)"><span class="badge badge--domain-ai" id="badgeAi"><span class="swatch"></span>AI</span><span class="badge badge--domain-web" id="badgeWeb"><span class="swatch"></span>Web</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="card"><div class="card__head"><div class="card__title">健康度等级分布</div></div><div class="card__body"><div id="chartHealthDonut" class="chart chart--md"></div></div></div>
+        </section>
+        <section class="card"><div class="card__head"><div><div class="card__title">主流编程语言分布</div><div class="card__desc">按使用仓库数排序的 Top 语言</div></div><span class="badge badge--soft">Top 10</span></div><div class="card__body"><div id="chartTopLangs" class="chart chart--md"></div></div></section>
+      </main>
+    </div>
+  </div>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    window.RL = {
+      palette: { brand:"#4f46e5",ai:"#8b5cf6",web:"#0ea5b7",text:"#383d52",text1:"#383d52",text2:"#646b82",text3:"#848aa0",border:"#e7e9f0",grid:"#e7e9f0",font:"'Plus Jakarta Sans',system-ui,sans-serif",mono:"'JetBrains Mono',ui-monospace,monospace",excellent:"#16a34a",good:"#65a30d",fair:"#d97706",poor:"#dc2626",langs:["#4f46e5","#0ea5b7","#f59e0b","#ec4899","#10b981","#6366f1","#ef4444","#14b8a6"] },
+      fmt: function(n){ return n==null?"—":Number(n).toLocaleString("en-US"); },
+      healthLevel: function(s){ return s>=80?"excellent":s>=60?"good":s>=40?"fair":"poor"; }
+    };
+    (function(){ const page=document.body.getAttribute("data-page"); document.querySelectorAll(".nav__item").forEach(function(a){ a.classList.toggle("is-active",a.getAttribute("data-page")===page); }); })();
+    (function(){ const sidebar=document.querySelector(".sidebar"),scrim=document.querySelector(".scrim"),btn=document.querySelector(".menu-btn"); if(!sidebar||!btn)return; btn.addEventListener("click",function(){ sidebar.classList.toggle("is-open"); scrim&&scrim.classList.toggle("is-open"); }); scrim&&scrim.addEventListener("click",function(){ sidebar.classList.remove("is-open"); scrim.classList.remove("is-open"); }); })();
+
+    (async function(){
+      var P=RL.palette;
+      var res=await fetch("./data/overview.json"); var json=await res.json();
+      var d=json, s=d.summary;
+      document.getElementById("sTotalRepos").textContent=RL.fmt(s.total_repos);
+      var lvl=RL.healthLevel(s.avg_health_score);
+      document.getElementById("sAvgHealth").innerHTML=s.avg_health_score.toFixed(2)+' <span class="score-pill score-pill--'+lvl+'" style="font-size:.5em"><b>'+lvl+'</b></span>';
+      var k=s.total_contributors>=1000?(s.total_contributors/1000).toFixed(1):s.total_contributors;
+      document.getElementById("sContribs").innerHTML=k+(s.total_contributors>=1000?'<small>k</small>':'');
+      document.getElementById("sContribsSub").textContent="覆盖 "+RL.fmt(s.total_repos)+" 仓库";
+      document.getElementById("sSnapshots").innerHTML=RL.fmt(s.snapshot_count)+' <small>条</small>';
+      document.getElementById("sDomainSplit").textContent="AI "+RL.fmt(s.ai_repos)+" / Web "+RL.fmt(s.web_repos);
+      var ai=d.domain_distribution.ai, web=d.domain_distribution.web;
+      document.getElementById("aiCount").innerHTML=RL.fmt(ai.count)+' <span class="text-3" style="font-size:.7em">· '+(ai.ratio*100).toFixed(1)+'%</span>';
+      document.getElementById("aiDetail").innerHTML='平均星标 '+RL.fmt(Math.round(ai.avg_stars))+' · 健康度 <b style="color:var(--ai-600)">'+ai.avg_health_score.toFixed(2)+'</b>';
+      document.getElementById("webCount").innerHTML=RL.fmt(web.count)+' <span class="text-3" style="font-size:.7em">· '+(web.ratio*100).toFixed(1)+'%</span>';
+      document.getElementById("webDetail").innerHTML='平均星标 '+RL.fmt(Math.round(web.avg_stars))+' · 健康度 <b style="color:var(--web-600)">'+web.avg_health_score.toFixed(2)+'</b>';
+      document.getElementById("ratioAi").style.width=(ai.ratio*100).toFixed(1)+"%";
+      document.getElementById("ratioWeb").style.width=(web.ratio*100).toFixed(1)+"%";
+      document.getElementById("badgeAi").innerHTML='<span class="swatch"></span>AI '+RL.fmt(ai.count);
+      document.getElementById("badgeWeb").innerHTML='<span class="swatch"></span>Web '+RL.fmt(web.count);
+      var hs=d.health_score_distribution;
+      echarts.init(document.getElementById("chartHealthDonut")).setOption({ tooltip:{trigger:"item"},legend:{bottom:0,icon:"circle"},series:[{type:"pie",radius:["52%","78%"],center:["50%","44%"],itemStyle:{borderColor:"#fff",borderWidth:3,borderRadius:6},label:{show:false},data:[{value:hs.excellent,name:"优秀 80-100",itemStyle:{color:P.excellent}},{value:hs.good,name:"良好 60-79",itemStyle:{color:P.good}},{value:hs.fair,name:"一般 40-59",itemStyle:{color:P.fair}},{value:hs.poor,name:"较差 0-39",itemStyle:{color:P.poor}}]}] });
+      var tl=d.top_languages.slice(0,10).reverse();
+      echarts.init(document.getElementById("chartTopLangs")).setOption({ grid:{left:8,right:48,top:10,bottom:6,containLabel:true},tooltip:{trigger:"axis"},xAxis:{type:"value",axisLabel:{color:P.text3,fontSize:12},splitLine:{lineStyle:{color:P.grid,type:"dashed"}}},yAxis:{type:"category",data:tl.map(function(l){return l.language;}),axisLabel:{color:P.text3,fontSize:12}},series:[{type:"bar",barWidth:18,data:tl.map(function(l){return l.repo_count;}),itemStyle:{borderRadius:[0,6,6,0],color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:P.brand},{offset:1,color:P.ai}])},label:{show:true,position:"right",color:P.text3,fontSize:12}}] });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+{
+  "language": {
+    "distribution_by": "language",
+    "domain_filter": null,
+    "items": [
+      {
+        "name": "TypeScript",
+        "repo_count": 2142,
+        "ratio": 0.5123,
+        "avg_stars": 5254.6,
+        "avg_health_score": 34.43
+      },
+      {
+        "name": "Python",
+        "repo_count": 2039,
+        "ratio": 0.4877,
+        "avg_stars": 5651.1,
+        "avg_health_score": 31.32
+      }
+    ],
+    "total_repos": 4181
+  },
+  "license": {
+    "distribution_by": "license",
+    "domain_filter": null,
+    "items": [
+      {
+        "name": "MIT",
+        "repo_count": 2249,
+        "ratio": 0.5379,
+        "avg_stars": 4803.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "Apache-2.0",
+        "repo_count": 842,
+        "ratio": 0.2014,
+        "avg_stars": 6051.6,
+        "avg_health_score": null
+      },
+      {
+        "name": "NOASSERTION",
+        "repo_count": 389,
+        "ratio": 0.093,
+        "avg_stars": 8494.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "(无)",
+        "repo_count": 270,
+        "ratio": 0.0646,
+        "avg_stars": 2058.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "AGPL-3.0",
+        "repo_count": 159,
+        "ratio": 0.038,
+        "avg_stars": 8111.9,
+        "avg_health_score": null
+      },
+      {
+        "name": "GPL-3.0",
+        "repo_count": 124,
+        "ratio": 0.0297,
+        "avg_stars": 5411.8,
+        "avg_health_score": null
+      },
+      {
+        "name": "BSD-3-Clause",
+        "repo_count": 65,
+        "ratio": 0.0155,
+        "avg_stars": 11299.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "BSD-2-Clause",
+        "repo_count": 14,
+        "ratio": 0.0033,
+        "avg_stars": 3963.8,
+        "avg_health_score": null
+      },
+      {
+        "name": "CC0-1.0",
+        "repo_count": 13,
+        "ratio": 0.0031,
+        "avg_stars": 1724.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "ISC",
+        "repo_count": 12,
+        "ratio": 0.0029,
+        "avg_stars": 4280.6,
+        "avg_health_score": null
+      },
+      {
+        "name": "MPL-2.0",
+        "repo_count": 11,
+        "ratio": 0.0026,
+        "avg_stars": 5174.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "LGPL-3.0",
+        "repo_count": 10,
+        "ratio": 0.0024,
+        "avg_stars": 2342.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "Unlicense",
+        "repo_count": 4,
+        "ratio": 0.001,
+        "avg_stars": 4340.2,
+        "avg_health_score": null
+      },
+      {
+        "name": "CC-BY-SA-4.0",
+        "repo_count": 3,
+        "ratio": 0.0007,
+        "avg_stars": 9014.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "CC-BY-4.0",
+        "repo_count": 3,
+        "ratio": 0.0007,
+        "avg_stars": 764.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "GPL-2.0",
+        "repo_count": 3,
+        "ratio": 0.0007,
+        "avg_stars": 4808.7,
+        "avg_health_score": null
+      },
+      {
+        "name": "LGPL-2.1",
+        "repo_count": 3,
+        "ratio": 0.0007,
+        "avg_stars": 8714.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "WTFPL",
+        "repo_count": 2,
+        "ratio": 0.0005,
+        "avg_stars": 9287.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "OSL-3.0",
+        "repo_count": 2,
+        "ratio": 0.0005,
+        "avg_stars": 2228.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "0BSD",
+        "repo_count": 1,
+        "ratio": 0.0002,
+        "avg_stars": 92.0,
+        "avg_health_score": null
+      }
+    ],
+    "total_repos": 4181
+  },
+  "topic": {
+    "distribution_by": "topic",
+    "domain_filter": null,
+    "items": [
+      {
+        "name": "typescript",
+        "repo_count": 867,
+        "ratio": 0.2074,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "react",
+        "repo_count": 857,
+        "ratio": 0.205,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "deep-learning",
+        "repo_count": 784,
+        "ratio": 0.1875,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "machine-learning",
+        "repo_count": 645,
+        "ratio": 0.1543,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "llm",
+        "repo_count": 632,
+        "ratio": 0.1512,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "nextjs",
+        "repo_count": 519,
+        "ratio": 0.1241,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "vue",
+        "repo_count": 519,
+        "ratio": 0.1241,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "nodejs",
+        "repo_count": 517,
+        "ratio": 0.1237,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "computer-vision",
+        "repo_count": 515,
+        "ratio": 0.1232,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "python",
+        "repo_count": 493,
+        "ratio": 0.1179,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "svelte",
+        "repo_count": 493,
+        "ratio": 0.1179,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "pytorch",
+        "repo_count": 487,
+        "ratio": 0.1165,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "transformers",
+        "repo_count": 472,
+        "ratio": 0.1129,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "javascript",
+        "repo_count": 443,
+        "ratio": 0.106,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "ai",
+        "repo_count": 419,
+        "ratio": 0.1002,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "artificial-intelligence",
+        "repo_count": 212,
+        "ratio": 0.0507,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "tailwindcss",
+        "repo_count": 206,
+        "ratio": 0.0493,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "hacktoberfest",
+        "repo_count": 196,
+        "ratio": 0.0469,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "nlp",
+        "repo_count": 176,
+        "ratio": 0.0421,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      },
+      {
+        "name": "openai",
+        "repo_count": 147,
+        "ratio": 0.0352,
+        "avg_stars": 0.0,
+        "avg_health_score": null
+      }
+    ],
+    "total_repos": 4181
+  }
+}

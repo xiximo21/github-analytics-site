@@ -1,0 +1,80 @@
+{
+  "metric": "all",
+  "comparison": {
+    "repo_count": {
+      "ai": 2039,
+      "web": 2142,
+      "diff_ratio": 0.048
+    },
+    "health_score": {
+      "ai": {
+        "avg": 31.32,
+        "median": 29.72,
+        "max": 54.49,
+        "min": 8.75,
+        "std": 8.4
+      },
+      "web": {
+        "avg": 34.43,
+        "median": 34.37,
+        "max": 56.06,
+        "min": 9.56,
+        "std": 8.21
+      },
+      "diff": -3.11
+    },
+    "dimensions": {
+      "popularity": {
+        "ai": 5651.1,
+        "web": 5254.6,
+        "diff": 396.5
+      },
+      "activity": {
+        "ai": 9.97,
+        "web": 15.03,
+        "diff": -5.06
+      },
+      "responsiveness": {
+        "ai": 50.97,
+        "web": 61.92,
+        "diff": -10.95
+      },
+      "maintenance": {
+        "ai": 46.96,
+        "web": 46.59,
+        "diff": 0.37
+      },
+      "sustainability": {
+        "ai": 0.0,
+        "web": 0.0,
+        "diff": 0.0
+      }
+    },
+    "top_languages": {
+      "ai": [
+        {
+          "language": "Python",
+          "count": 2039,
+          "ratio": 1.0
+        }
+      ],
+      "web": [
+        {
+          "language": "TypeScript",
+          "count": 2142,
+          "ratio": 1.0
+        }
+      ]
+    },
+    "star_growth": {
+      "ai": {
+        "avg_growth": 0.0,
+        "avg_growth_rate": 0.0
+      },
+      "web": {
+        "avg_growth": 0.0,
+        "avg_growth_rate": 0.0
+      }
+    }
+  }
+}
