@@ -77,10 +77,11 @@ function loadRanking(){
     var topItem=items[0],dims=topItem.dimensions||{};
     var topDims=[dims.popularity||0,dims.activity||0,dims.responsiveness||0,dims.maintenance||0,dims.sustainability||0];
     var allZero=topDims.every(function(v){return v===0;});
-    if(allZero){document.getElementById("radarDesc").textContent="特征数据未计算";document.getElementById("chartRadar").innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-3)"><div style="font-size:40px;margin-bottom:12px">\ud83d\udcca</div><div>维度数据暂不可用</div></div>';return;}
+    if(allZero){document.getElementById("radarDesc").textContent="特征数据未计算";radarChart.clear();radarChart.setOption({title:{text:"维度数据暂不可用",left:"center",top:"middle",textStyle:{color:RL.palette.text3,fontSize:14}},series:[{type:"radar",data:[]}]});return;}
     var avgDims=[0,0,0,0,0];items.forEach(function(it){var dd=it.dimensions||{};avgDims[0]+=(dd.popularity||0);avgDims[1]+=(dd.activity||0);avgDims[2]+=(dd.responsiveness||0);avgDims[3]+=(dd.maintenance||0);avgDims[4]+=(dd.sustainability||0);});var n=items.length;avgDims=avgDims.map(function(v){return Math.round(v/n*10)/10;});
     document.getElementById("radarDesc").textContent=topItem.name_with_owner;
-    radarChart.setOption({legend:{data:[topItem.name,"全库均值"]},series:[{type:"radar",data:[{value:topDims.map(function(v){return Math.round(v*10)/10;}),name:topItem.name,lineStyle:{color:RL.palette.ai,width:2},itemStyle:{color:RL.palette.ai},areaStyle:{color:"rgba(139,92,246,0.18)"}},{value:avgDims,name:"全库均值",lineStyle:{color:RL.palette.text3,width:1.5,type:"dashed"},itemStyle:{color:RL.palette.text3},areaStyle:{color:"rgba(100,107,130,0.08)"}}]}]},true);
+    radarChart.clear();
+    radarChart.setOption({legend:{data:[topItem.name,"全库均值"]},radar:{indicator:[{name:"流行度",max:100},{name:"活跃度",max:100},{name:"响应性",max:100},{name:"维护性",max:100},{name:"持续性",max:100}]},series:[{type:"radar",data:[{value:topDims.map(function(v){return Math.round(v*10)/10;}),name:topItem.name,lineStyle:{color:RL.palette.ai,width:2},itemStyle:{color:RL.palette.ai},areaStyle:{color:"rgba(139,92,246,0.18)"}},{value:avgDims,name:"全库均值",lineStyle:{color:RL.palette.text3,width:1.5,type:"dashed"},itemStyle:{color:RL.palette.text3},areaStyle:{color:"rgba(100,107,130,0.08)"}}]}]});
   }
 }
 document.getElementById("rankTop").addEventListener("change",loadRanking);

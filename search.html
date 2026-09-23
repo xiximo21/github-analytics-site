@@ -78,7 +78,7 @@ function loadResults(){
   pageItems.forEach(function(r){
     var badge=r.domain==="ai"?'<span class="badge badge--domain-ai"><span class="swatch"></span>AI</span>':'<span class="badge badge--domain-web"><span class="swatch"></span>Web</span>';
     var lvl=r.health_level||RL.healthLevel(r.health_score);var hs=r.health_score!=null?'<span class="health-badge health-badge--'+lvl+'">'+r.health_score.toFixed(1)+'</span>':"\u2014";
-    tbody.insertAdjacentHTML("beforeend","<tr><td>"+r.name_with_owner+"</td><td>"+badge+"</td><td><span class='text-3' style='font-size:var(--fs-xs)'>"+(r.primary_language||"\u2014")+"</span></td><td>"+RL.fmt(r.stargazer_count)+"</td><td>"+RL.fmt(r.fork_count)+"</td><td>"+hs+"</td><td>"+RL.fmt(r.contributors_count)+"</td></tr>");
+    tbody.insertAdjacentHTML("beforeend","<tr><td><a href='detail.html?repo="+encodeURIComponent(r.name_with_owner)+"' style='color:var(--brand,#4f46e5);text-decoration:none;font-weight:600'>"+r.name_with_owner+"</a></td><td>"+badge+"</td><td><span class='text-3' style='font-size:var(--fs-xs)'>"+(r.primary_language||"\u2014")+"</span></td><td>"+RL.fmt(r.stargazer_count)+"</td><td>"+RL.fmt(r.fork_count)+"</td><td>"+hs+"</td><td>"+RL.fmt(r.contributors_count)+"</td></tr>");
   });
 }
 document.getElementById("btnSearch").addEventListener("click",function(){curPage=1;loadResults();});
